@@ -2,8 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { MantineProvider, createTheme } from '@mantine/core';
 import '@mantine/core/styles.css';
-import App from './App';
+import App from './App';  
 
+/* 🔹 Brand Theme */
 const theme = createTheme({
   colors: {
     brand: [
@@ -16,13 +17,17 @@ const theme = createTheme({
       '#b56815',
       '#945211',
       '#6a1b1a', // brand-primary
-      '#3a0e0d', // brand-dark
+      '#0d103aff', // brand-dark
     ],
   },
+
   primaryColor: 'brand',
-  fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+   // brand-primary
+
+  fontFamily: "Poppins",
+
   headings: {
-    fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
+    fontFamily: "'Poppins'",
   },
 });
 

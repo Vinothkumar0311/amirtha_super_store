@@ -2,7 +2,7 @@
 export interface Product {
   id: number;
   name: string;
-  price: number;
+  price?: number;
   originalPrice?: number;
   imageUrl: string;
   category: string;
@@ -14,8 +14,14 @@ export interface Category {
   name: string;
   imageUrl: string;
   productCount: number;
+  description: string;
 }
-
+export interface GALLERY {
+  id: number;
+  name: string;
+  imageUrl: string;
+  productCount: number;
+}
 export interface Testimonial {
   id: number;
   quote: string;

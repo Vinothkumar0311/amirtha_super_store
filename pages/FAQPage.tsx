@@ -6,7 +6,7 @@ const FAQPage: React.FC = () => {
     <Box style={{ backgroundColor: 'white' }} py={64}>
       <Container size="xl">
         <Box ta="center" mb={48}>
-          <Title order={1} size="2.5rem" ff="Georgia, serif" fw={700} c="#3a0e0d">
+          <Title order={1} size="2.5rem"  fw={700} c="#3a0e0d">
             Frequently Asked Questions
           </Title>
           <Text size="lg" c="dimmed" mt="xs">

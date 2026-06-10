@@ -4,14 +4,13 @@ import { TESTIMONIALS } from '../constants';
 
 const Testimonials: React.FC = () => {
     return (
-        <Box component="section" py={64} style={{ backgroundColor: 'white' }}>
+        <Box component="section" py={{ base: 60, lg: 80 }} style={{ backgroundColor: 'white' }}>
             <Container size="xl">
                 <Title
                     order={2}
                     size="2rem"
-                    ff="Georgia, serif"
                     fw={700}
-                    c="#3a0e0d"
+                    c="#5d0e0b"
                     ta="center"
                     mb={40}
                 >
@@ -40,7 +39,7 @@ const Testimonials: React.FC = () => {
                             >
                                 "{testimonial.quote}"
                             </Text>
-                            <Text fw={700} c="#6a1b1a">
+                            <Text fw={700} c="#0a0808ff">
                                 {testimonial.author}
                             </Text>
                             <Text size="sm" c="#6b7280">
