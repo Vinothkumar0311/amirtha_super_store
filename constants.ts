@@ -293,7 +293,7 @@ export const Gallery: GALLERY[] = [
 export const silverIdolsCategory: Category = {
   id: 1,
   name: 'Bronze Idols',
-  imageUrl: '/assets/home/bronzeidol.png', // Deep red background with silver Ganesha idols
+  imageUrl: '/assets/bronces/Scanned_20260615-1149_page-0003.jpg',
   description: 'Divine silver idols handcrafted with devotion',
   productCount: 120,
 };
@@ -301,7 +301,7 @@ export const silverIdolsCategory: Category = {
 export const floralBloomCategory: Category = {
   id: 2,
   name: 'Pooja Items',
-  imageUrl: '/assets/home/pooja.png', // Soft pastel background with pink floral earrings
+  imageUrl: '/assets/puja/Scanned_20260615-1149_page-0031.jpg',
   description: 'Delicate floral designs inspired by nature',
   productCount: 85,
 };
