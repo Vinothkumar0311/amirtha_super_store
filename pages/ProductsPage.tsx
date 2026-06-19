@@ -147,35 +147,70 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ searchTerm }) => {
     );
 
   return (
-    <Box style={{ backgroundColor: "white", minHeight: "100vh", marginTop: "50px" }}>
+    <Box style={{ backgroundColor: "#fdfaf6", minHeight: "100vh" }}>
       <Container size="xl" py="xl">
         <Box pt="xl" pb="md" ta="center">
-          <Title order={1} fw={700} c="#5d0e0b">
-            Our Collection
+          <Title order={1} fw={800} c="#5d0e0b" style={{ fontFamily: "'Playfair Display', serif", fontSize: '3rem', letterSpacing: '1px' }}>
+            Our Collections
           </Title>
+          <Text c="dimmed" mt="xs" size="md" style={{ letterSpacing: '0.5px' }}>
+            Browse through our exquisite legacy collections of handicraft masterworks
+          </Text>
+          <Box style={{ width: '60px', height: '3px', backgroundColor: '#f7941d', margin: '15px auto 0 auto', borderRadius: '2px' }} />
         </Box>
 
         <Group align="flex-start" gap="xl" mt="xl">
           {/* Sidebar */}
-          <Box component="aside" w={{ base: "100%", md: "25%", lg: "20%" }}>
+          <Box 
+            component="aside" 
+            w={{ base: "100%", md: "25%", lg: "20%" }}
+            style={{
+              backgroundColor: '#fdfaf6',
+              borderRadius: '12px',
+              padding: '1.5rem',
+              border: '1px solid rgba(93, 14, 11, 0.12)',
+              boxShadow: '0 8px 30px rgba(93, 14, 11, 0.05)',
+            }}
+          >
             <Stack gap="md">
-              <Title order={3} fw={700} c="#5d0e0b">
+              <Title order={3} fw={700} c="#5d0e0b" style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.4rem' }}>
                 Categories
               </Title>
               <Stack gap="xs">
                 {categoriesList.map(category => (
-                  <Button
+                  <button
                     key={category}
                     onClick={() => handleCategoryChange(category)}
-                    variant={
-                      selectedCategory === category ? "filled" : "subtle"
-                    }
-                    color={selectedCategory === category ? "brand.8" : "gray"}
-                    fullWidth
-                    justify="flex-start"
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      textAlign: 'left',
+                      padding: '12px 18px',
+                      borderRadius: '8px',
+                      backgroundColor: selectedCategory === category ? '#5d0e0b' : 'transparent',
+                      color: selectedCategory === category ? 'white' : '#555',
+                      border: 'none',
+                      fontWeight: selectedCategory === category ? 700 : 500,
+                      fontSize: '0.95rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      fontFamily: "'Poppins', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (selectedCategory !== category) {
+                        e.currentTarget.style.backgroundColor = 'rgba(93, 14, 11, 0.08)';
+                        e.currentTarget.style.color = '#5d0e0b';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (selectedCategory !== category) {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = '#555';
+                      }
+                    }}
                   >
                     {category}
-                  </Button>
+                  </button>
                 ))}
               </Stack>
             </Stack>

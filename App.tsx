@@ -23,7 +23,7 @@ const AppContent: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <Box style={{ backgroundColor: '#fef3e3', minHeight: '100vh' }}>
+    <Box style={{ backgroundColor: '#fdfaf6', minHeight: '100vh' }}>
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <main>
         <Routes>

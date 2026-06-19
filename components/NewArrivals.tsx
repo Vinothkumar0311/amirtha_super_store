@@ -107,7 +107,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({
             }
           />
 
-          {/* Text Overlay */}
+          {/* Text Overlay Card */}
           <Box
             pos="absolute"
             top="50%"
@@ -116,14 +116,21 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({
               transform: 'translateY(-50%)',
               maxWidth: 600,
               zIndex: 2,
+              backgroundColor: 'rgba(253, 250, 246, 0.85)',
+              backdropFilter: 'blur(10px)',
+              padding: '2.5rem',
+              borderRadius: '16px',
+              border: '1px solid rgba(93, 14, 11, 0.15)',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
             }}
           >
-            <Group gap="md" mb="xs">
+            <Group gap="md" mb="md">
               <Title
                 order={1}
-                size={{ base: '2.5rem', lg: '4rem' }}
-                fw={700}
+                size={{ base: '2.2rem', lg: '3.2rem' }}
+                fw={800}
                 c="#5d0e0b"
+                style={{ fontFamily: "'Playfair Display', serif", margin: 0 }}
               >
                 {bannerTitle}
               </Title>
@@ -131,18 +138,20 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({
               <Badge
                 size="lg"
                 radius="xl"
-                bg="rgba(255,255,255,0.85)"
+                bg="#f7941d"
+                c="white"
+                style={{ padding: '6px 16px', height: 'auto' }}
               >
-                <Text fw={600} c="#5d0e0b">
-                  ♦ {itemCount}+ New Items
+                <Text fw={700} size="xs" style={{ letterSpacing: '1px' }}>
+                  {itemCount}+ NEW ITEMS
                 </Text>
               </Badge>
             </Group>
 
-            <Text fw={500} c="#444" mb="xs">
+            <Text fw={500} c="#555" mb="md" size="lg">
               {bannerSubtitle}
             </Text>
-            <Text fw={700} c="#5d0e0b">
+            <Text fw={700} c="#5d0e0b" size="md" style={{ letterSpacing: '0.5px' }}>
               {bannerDescription}
             </Text>
           </Box>

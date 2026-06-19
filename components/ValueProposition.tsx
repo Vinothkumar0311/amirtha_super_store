@@ -67,7 +67,7 @@ const ValueProposition: React.FC = () => {
     ];
 
     return (
-        <Box py={{ base: 40, lg: 60 }} style={{ backgroundColor: '#fff', borderBottom: '1px solid #eaeaea' }}>
+        <Box py={{ base: 40, lg: 60 }} style={{ backgroundColor: '#fdfaf6', borderBottom: '1px solid #f0e6d6' }}>
             <Container size="lg">
                 <SimpleGrid
                     cols={{ base: 1, sm: 3 }}

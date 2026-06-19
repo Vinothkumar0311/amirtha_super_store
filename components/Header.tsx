@@ -66,8 +66,8 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
                     <Group justify="space-between">
                         <Text size="xs">Welcome to Amirtha Super Store</Text>
                         <Group gap="md">
-                            <Anchor href="tel:+911234567890" c="white" size="xs" style={{ textDecoration: 'none' }}>
-                                📞 +91-1234567890
+                            <Anchor href="tel:+918610349949" c="white" size="xs" style={{ textDecoration: 'none' }}>
+                                📞 +91 86103 49949
                             </Anchor>
                             <Anchor
                                 href="mailto:info@amirthasuperstore.com"
@@ -87,86 +87,53 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
             <Box 
                 style={{ 
                     backgroundColor: 'white', 
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
                     transition: 'all 0.3s ease'
                 }}
             >
-                <Container size="xl" py={scrolled ? 'sm' : 'md'}>
+                <Container size="xl" py={scrolled ? 'xs' : 'sm'}>
                     <Group 
-                        justify={scrolled ? "space-between" : "center"} 
+                        justify="space-between" 
                         align="center"
                         style={{ 
-                            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                            position: 'relative'
+                            transition: 'all 0.3s ease'
                         }}
                     >
-                        {/* Left Navigation - Hidden when not scrolled */}
-                        <Group 
-                            gap="xl" 
-                            visibleFrom="lg"
-                            style={{
-                                opacity: scrolled ? 1 : 0,
-                                transform: scrolled ? 'translateX(0)' : 'translateX(-20px)',
-                                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                                pointerEvents: scrolled ? 'auto' : 'none'
-                            }}
-                        >
-                            {NAV_LINKS.slice(0, Math.ceil(NAV_LINKS.length / 2)).map((link: NavLink) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.path}
-                                    style={{
-                                        color: '#5d0e0b',
-                                        textDecoration: 'none',
-                                        textTransform: 'uppercase',
-                                        fontSize: '0.875rem',
-                                        fontWeight: 600,
-                                        transition: 'color 0.3s',
-                                        letterSpacing: '0.5px'
-                                    }}
-                                    onMouseEnter={(e) => (e.currentTarget.style.color = '#800020')}
-                                    onMouseLeave={(e) => (e.currentTarget.style.color = '#5d0e0b')}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </Group>
-
-                        {/* Center Logo */}
+                        {/* Left Logo */}
                         <Link
                             to="/"
                             style={{
                                 textDecoration: 'none',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                alignItems: 'center',
-                                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                                transform: scrolled ? 'scale(0.75)' : 'scale(1)',
-                                transformOrigin: 'center'
+                                alignItems: 'flex-start',
+                                transition: 'all 0.3s ease'
                             }}
                         >
                             <Text
                                 style={{
-                                    fontSize: scrolled ? '1.8rem' : '2.5rem',
+                                    fontSize: scrolled ? '1.8rem' : '2.2rem',
                                     fontWeight: 800,
                                     color: '#5d0e0b',
-                                    letterSpacing: '2px',
+                                    letterSpacing: '1.5px',
                                     lineHeight: 1,
-                                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                                    textTransform: 'uppercase'
+                                    transition: 'all 0.3s ease',
+                                    textTransform: 'uppercase',
+                                    fontFamily: '"Playfair Display", serif'
                                 }}
                             >
                                 AMIRTHA
                             </Text>
                             <Text
                                 style={{
-                                    fontSize: scrolled ? '0.7rem' : '0.9rem',
-                                    fontWeight: 500,
-                                    color: '#800020',
-                                    letterSpacing: '3px',
-                                    marginTop: '0.2rem',
-                                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                                    textTransform: 'uppercase'
+                                    fontSize: scrolled ? '0.65rem' : '0.75rem',
+                                    fontWeight: 600,
+                                    color: '#f7941d',
+                                    letterSpacing: '2.5px',
+                                    marginTop: '0.1rem',
+                                    transition: 'all 0.3s ease',
+                                    textTransform: 'uppercase',
+                                    fontFamily: '"Poppins", sans-serif'
                                 }}
                             >
                                 Super Store
@@ -177,14 +144,9 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
                         <Group 
                             gap="xl" 
                             visibleFrom="lg"
-                            style={{
-                                opacity: scrolled ? 1 : 0,
-                                transform: scrolled ? 'translateX(0)' : 'translateX(20px)',
-                                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                                pointerEvents: scrolled ? 'auto' : 'none'
-                            }}
+                            align="center"
                         >
-                            {NAV_LINKS.slice(Math.ceil(NAV_LINKS.length / 2)).map((link: NavLink) => (
+                            {NAV_LINKS.map((link: NavLink) => (
                                 <Link
                                     key={link.name}
                                     to={link.path}
@@ -192,12 +154,14 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
                                         color: '#5d0e0b',
                                         textDecoration: 'none',
                                         textTransform: 'uppercase',
-                                        fontSize: '0.875rem',
-                                        fontWeight: 600,
-                                        transition: 'color 0.3s',
-                                        letterSpacing: '0.5px'
+                                        fontSize: '0.85rem',
+                                        fontWeight: 700,
+                                        transition: 'all 0.2s ease',
+                                        letterSpacing: '0.5px',
+                                        padding: '4px 0',
+                                        fontFamily: '"Poppins", sans-serif'
                                     }}
-                                    onMouseEnter={(e) => (e.currentTarget.style.color = '#800020')}
+                                    onMouseEnter={(e) => (e.currentTarget.style.color = '#f7941d')}
                                     onMouseLeave={(e) => (e.currentTarget.style.color = '#5d0e0b')}
                                 >
                                     {link.name}
@@ -212,75 +176,10 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
                             hiddenFrom="lg" 
                             size="sm" 
                             color="#5d0e0b"
-                            style={{
-                                position: 'absolute',
-                                right: 0
-                            }}
                         />
                     </Group>
-
-                    {/* Search Bar - Below logo when not scrolled, hidden when scrolled */}
-                    {/* {!scrolled && (
-                        <Box mt="md">
-                            <TextInput
-                                placeholder="Search for products..."
-                                value={searchTerm}
-                                onChange={handleSearchChange}
-                                rightSection={<SearchIcon style={{ width: 20, height: 20, color: '#800020' }} />}
-                                visibleFrom="md"
-                                style={{ 
-                                    maxWidth: 600,
-                                    margin: '0 auto',
-                                    opacity: scrolled ? 0 : 1,
-                                    transition: 'opacity 0.3s ease'
-                                }}
-                                styles={{
-                                    input: {
-                                        borderRadius: 9999,
-                                        borderColor: '#800020',
-                                        borderWidth: 2
-                                    }
-                                }}
-                            />
-                        </Box>
-                    )} */}
                 </Container>
             </Box>
-
-            {/* 🔹 Full Navigation Bar - Visible when not scrolled */}
-            {!scrolled && (
-                <Box 
-                    style={{ 
-                        backgroundColor: '#5d0e0b',
-                        transition: 'all 0.3s ease'
-                    }} 
-                    visibleFrom="lg"
-                >
-                    <Container size="xl">
-                        <Group justify="center" gap="xl" py="sm">
-                            {NAV_LINKS.map((link: NavLink) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.path}
-                                    style={{
-                                        color: 'white',
-                                        textDecoration: 'none',
-                                        textTransform: 'uppercase',
-                                        fontSize: '0.875rem',
-                                        fontWeight: 600,
-                                        transition: 'color 0.3s',
-                                        letterSpacing: '0.5px'
-                                    }}
-                                    onMouseEnter={(e) => (e.currentTarget.style.color = '#800020')}
-                                    onMouseLeave={(e) => (e.currentTarget.style.color = 'white')}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </Group>
-                    </Container>
-                </Box>
-            )}
 
             {/* 🎠 Auto-Sliding Carousel */}
             {/* <HeaderCarousel /> */}

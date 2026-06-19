@@ -1,57 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Container } from '@mantine/core';
+import { Box, Container, Text } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 interface CarouselImage {
     src: string;
     alt: string;
+    title: string;
+    subtitle: string;
+    link: string;
+    buttonLabel: string;
 }
 
 const CAROUSEL_IMAGES: CarouselImage[] = [
-    { src: '/assets/home/hero.png', alt: 'Hero Banner' },
-    { src: '/assets/home/hero.png', alt: 'Bronze Statues' },
-    { src: '/assets/home/hero.png.jpg', alt: 'Traditional Statues' },
-    { src: '/assets/home/hero.png', alt: 'Gallery' },
-    { src: '/assets/home/hero.png', alt: 'Products' },
+    { 
+        src: '/assets/home/hero.png', 
+        alt: 'Bronze Statues',
+        title: 'Exquisite Bronze Statues',
+        subtitle: 'Experience authentic, temple-grade traditional bronze idols handcrafted by master artisans.',
+        link: '/products?category=Bronze Statues',
+        buttonLabel: 'Explore Collection'
+    },
+    { 
+        src: '/assets/categories/furniture/furniture_hero.png', 
+        alt: 'Teak Furniture',
+        title: 'Teak & Rosewood Furniture',
+        subtitle: 'Premium traditional furniture pieces crafted with heritage, time-honored techniques, and luxury teak.',
+        link: '/products?category=Furniture',
+        buttonLabel: 'View Masterpieces'
+    },
+    { 
+        src: '/assets/home/pooja.png', 
+        alt: 'Pooja Items',
+        title: 'Sacred Pooja Essentials',
+        subtitle: 'Traditional puja items, bells, and brass lamps that bring divine grace to your sacred home space.',
+        link: '/products?category=Puja Items',
+        buttonLabel: 'Discover Sacred Items'
+    },
 ];
 
-/**
- * TRANSITION TYPES - Change this value to try different transitions:
- * 
- * 1. 'slide-left' - Slides from right to left
- * 2. 'slide-right' - Slides from left to right
- * 3. 'slide-up' - Slides from bottom to top
- * 4. 'slide-down' - Slides from top to bottom
- * 5. 'fade' - Simple fade in/out (current default)
- * 6. 'zoom-in' - Zooms in while fading
- * 7. 'zoom-out' - Zooms out while fading
- * 8. 'slide-fade-left' - Slides left with fade
- * 9. 'slide-fade-right' - Slides right with fade
- * 10. 'rotate-slide' - Rotates while sliding
- */
-type TransitionType =
-    | 'slide-left'
-    | 'slide-right'
-    | 'slide-up'
-    | 'slide-down'
-    | 'fade'
-    | 'zoom-in'
-    | 'zoom-out'
-    | 'slide-fade-left'
-    | 'slide-fade-right'
-    | 'rotate-slide';
-
-const TRANSITION_TYPE: TransitionType = 'slide-left'; // <-- CHANGE THIS VALUE TO TRY DIFFERENT TRANSITIONS
-
 const HeaderCarousel: React.FC = () => {
+    const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [nextIndex, setNextIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
-    const [direction, setDirection] = useState<'next' | 'prev'>('next');
+    const [, setDirection] = useState<'next' | 'prev'>('next');
 
     useEffect(() => {
         const interval = setInterval(() => {
             handleNext();
-        }, 4000); // Auto-slide every 4 seconds
+        }, 6000); // 6 seconds auto-slide
 
         return () => clearInterval(interval);
     }, [currentIndex]);
@@ -94,7 +91,6 @@ const HeaderCarousel: React.FC = () => {
         }, 800);
     };
 
-    // Get transition styles based on transition type
     const getTransitionStyle = (index: number, isCurrent: boolean, isNext: boolean): React.CSSProperties => {
         const baseStyle: React.CSSProperties = {
             position: 'absolute',
@@ -108,146 +104,21 @@ const HeaderCarousel: React.FC = () => {
             backgroundRepeat: 'no-repeat',
         };
 
-        // Common transition duration
         const transitionDuration = '0.8s';
         const easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
 
-        const transitionType: TransitionType = TRANSITION_TYPE;
-
-        switch (transitionType) {
-            case 'slide-left':
-                return {
-                    ...baseStyle,
-                    transform: !isTransitioning
+        return {
+            ...baseStyle,
+            transform: !isTransitioning
+                ? 'translateX(0)'
+                : isCurrent
+                    ? 'translateX(-100%)'
+                    : isNext
                         ? 'translateX(0)'
-                        : isCurrent
-                            ? 'translateX(-100%)'
-                            : isNext
-                                ? 'translateX(0)'
-                                : 'translateX(100%)',
-                    transition: `transform ${transitionDuration} ${easing}`,
-                    zIndex: isNext ? 2 : 1,
-                };
-
-            // case 'slide-right':
-            //     return {
-            //         ...baseStyle,
-            //         transform: !isTransitioning
-            //             ? 'translateX(0)'
-            //             : isCurrent
-            //                 ? 'translateX(100%)'
-            //                 : isNext
-            //                     ? 'translateX(0)'
-            //                     : 'translateX(-100%)',
-            //         transition: `transform ${transitionDuration} ${easing}`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'slide-up':
-            //     return {
-            //         ...baseStyle,
-            //         transform: !isTransitioning
-            //             ? 'translateY(0)'
-            //             : isCurrent
-            //                 ? 'translateY(-100%)'
-            //                 : isNext
-            //                     ? 'translateY(0)'
-            //                     : 'translateY(100%)',
-            //         transition: `transform ${transitionDuration} ${easing}`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'slide-down':
-            //     return {
-            //         ...baseStyle,
-            //         transform: !isTransitioning
-            //             ? 'translateY(0)'
-            //             : isCurrent
-            //                 ? 'translateY(100%)'
-            //                 : isNext
-            //                     ? 'translateY(0)'
-            //                     : 'translateY(-100%)',
-            //         transition: `transform ${transitionDuration} ${easing}`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'fade':
-            //     return {
-            //         ...baseStyle,
-            //         opacity: isCurrent && !isTransitioning ? 1 : isNext && isTransitioning ? 1 : 0,
-            //         transition: `opacity ${transitionDuration} ease-in-out`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'zoom-in':
-            //     return {
-            //         ...baseStyle,
-            //         opacity: isCurrent && !isTransitioning ? 1 : isNext && isTransitioning ? 1 : 0,
-            //         transform: isNext && isTransitioning ? 'scale(1)' : isNext ? 'scale(0.8)' : 'scale(1)',
-            //         transition: `opacity ${transitionDuration} ease-in-out, transform ${transitionDuration} ${easing}`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'zoom-out':
-            //     return {
-            //         ...baseStyle,
-            //         opacity: isCurrent && !isTransitioning ? 1 : isNext && isTransitioning ? 1 : 0,
-            //         transform: isCurrent && isTransitioning ? 'scale(1.2)' : 'scale(1)',
-            //         transition: `opacity ${transitionDuration} ease-in-out, transform ${transitionDuration} ${easing}`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'slide-fade-left':
-            //     return {
-            //         ...baseStyle,
-            //         transform: !isTransitioning
-            //             ? 'translateX(0)'
-            //             : isCurrent
-            //                 ? 'translateX(-50%)'
-            //                 : isNext
-            //                     ? 'translateX(0)'
-            //                     : 'translateX(50%)',
-            //         opacity: isCurrent && !isTransitioning ? 1 : isNext && isTransitioning ? 1 : 0,
-            //         transition: `transform ${transitionDuration} ${easing}, opacity ${transitionDuration} ease-in-out`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'slide-fade-right':
-            //     return {
-            //         ...baseStyle,
-            //         transform: !isTransitioning
-            //             ? 'translateX(0)'
-            //             : isCurrent
-            //                 ? 'translateX(50%)'
-            //                 : isNext
-            //                     ? 'translateX(0)'
-            //                     : 'translateX(-50%)',
-            //         opacity: isCurrent && !isTransitioning ? 1 : isNext && isTransitioning ? 1 : 0,
-            //         transition: `transform ${transitionDuration} ${easing}, opacity ${transitionDuration} ease-in-out`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // case 'rotate-slide':
-            //     return {
-            //         ...baseStyle,
-            //         transform: !isTransitioning
-            //             ? 'translateX(0) rotate(0deg)'
-            //             : isCurrent
-            //                 ? 'translateX(-100%) rotate(-5deg)'
-            //                 : isNext
-            //                     ? 'translateX(0) rotate(0deg)'
-            //                     : 'translateX(100%) rotate(5deg)',
-            //         transition: `transform ${transitionDuration} ${easing}`,
-            //         zIndex: isNext ? 2 : 1,
-            //     };
-
-            // default:
-            //     return {
-            //         ...baseStyle,
-            //         opacity: isCurrent ? 1 : 0,
-            //         transition: `opacity ${transitionDuration} ease-in-out`,
-            //     };
-        }
+                        : 'translateX(100%)',
+            transition: `transform ${transitionDuration} ${easing}`,
+            zIndex: isNext ? 2 : 1,
+        };
     };
 
     return (
@@ -257,25 +128,11 @@ const HeaderCarousel: React.FC = () => {
                 width: '100%',
                 height: '750px',
                 overflow: 'hidden',
-                backgroundColor: '#f5f5f5',
-            }}
-            sx={{
-                '@media (max-width: 768px)': {
-                    height: '400px',
-                },
-                '@media (max-width: 480px)': {
-                    height: '300px',
-                }
+                backgroundColor: '#120101',
             }}
         >
             {/* Carousel Images */}
-            <Box
-                style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '100%',
-                }}
-            >
+            <Box style={{ position: 'relative', width: '100%', height: '100%' }}>
                 {CAROUSEL_IMAGES.map((image, index) => (
                     <Box
                         key={index}
@@ -295,11 +152,105 @@ const HeaderCarousel: React.FC = () => {
                         left: 0,
                         width: '100%',
                         height: '100%',
-                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                        background: 'linear-gradient(90deg, rgba(18,1,1,0.85) 0%, rgba(18,1,1,0.4) 50%, rgba(18,1,1,0.2) 100%)',
                         zIndex: 5,
                     }}
                 />
             </Box>
+
+            {/* Carousel Content Overlay */}
+            <Container
+                size="xl"
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    zIndex: 6,
+                    pointerEvents: 'none',
+                }}
+            >
+                <Box 
+                    style={{ 
+                        maxWidth: '650px', 
+                        pointerEvents: 'auto',
+                        padding: '0 20px',
+                    }}
+                >
+                    <Text
+                        style={{
+                            color: '#f7941d',
+                            fontSize: '1.2rem',
+                            fontWeight: 700,
+                            letterSpacing: '3px',
+                            textTransform: 'uppercase',
+                            marginBottom: '1rem',
+                        }}
+                    >
+                        Amirtha Heritage
+                    </Text>
+                    <h1
+                        style={{
+                            color: 'white',
+                            fontSize: '4.2rem',
+                            fontWeight: 800,
+                            lineHeight: 1.1,
+                            margin: 0,
+                            marginBottom: '1.5rem',
+                            textShadow: '0 4px 15px rgba(0,0,0,0.5)',
+                            fontFamily: "'Playfair Display', serif",
+                        }}
+                    >
+                        {CAROUSEL_IMAGES[currentIndex].title}
+                    </h1>
+                    <Text
+                        style={{
+                            color: 'rgba(255, 255, 255, 0.95)',
+                            fontSize: '1.2rem',
+                            lineHeight: 1.6,
+                            margin: 0,
+                            marginBottom: '2.5rem',
+                            textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+                        }}
+                    >
+                        {CAROUSEL_IMAGES[currentIndex].subtitle}
+                    </Text>
+                    <button
+                        onClick={() => navigate(CAROUSEL_IMAGES[currentIndex].link)}
+                        style={{
+                            backgroundColor: '#f7941d',
+                            color: '#120101',
+                            border: 'none',
+                            padding: '16px 42px',
+                            fontSize: '1rem',
+                            fontWeight: 700,
+                            borderRadius: '50px',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            boxShadow: '0 8px 24px rgba(247, 148, 29, 0.3)',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1px',
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = 'white';
+                            e.currentTarget.style.transform = 'translateY(-3px)';
+                            e.currentTarget.style.boxShadow = '0 12px 30px rgba(255, 255, 255, 0.4)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = '#f7941d';
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 8px 24px rgba(247, 148, 29, 0.3)';
+                        }}
+                    >
+                        {CAROUSEL_IMAGES[currentIndex].buttonLabel}
+                    </button>
+                </Box>
+            </Container>
 
             {/* Navigation Arrows */}
             <button
@@ -307,17 +258,18 @@ const HeaderCarousel: React.FC = () => {
                 disabled={isTransitioning}
                 style={{
                     position: 'absolute',
-                    left: '20px',
+                    left: '30px',
                     top: '50%',
                     transform: 'translateY(-50%)',
                     zIndex: 10,
-                    backgroundColor: 'rgba(93, 14, 11, 0.8)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(5px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
                     color: 'white',
-                    border: 'none',
                     borderRadius: '50%',
-                    width: '50px',
-                    height: '50px',
-                    fontSize: '24px',
+                    width: '60px',
+                    height: '60px',
+                    fontSize: '28px',
                     cursor: isTransitioning ? 'not-allowed' : 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -327,12 +279,16 @@ const HeaderCarousel: React.FC = () => {
                 }}
                 onMouseEnter={(e) => {
                     if (!isTransitioning) {
-                        e.currentTarget.style.backgroundColor = 'rgba(128, 0, 32, 0.9)';
+                        e.currentTarget.style.backgroundColor = '#f7941d';
+                        e.currentTarget.style.color = '#120101';
+                        e.currentTarget.style.borderColor = '#f7941d';
                         e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
                     }
                 }}
                 onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(93, 14, 11, 0.8)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                     e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
                 }}
             >
@@ -344,17 +300,18 @@ const HeaderCarousel: React.FC = () => {
                 disabled={isTransitioning}
                 style={{
                     position: 'absolute',
-                    right: '20px',
+                    right: '30px',
                     top: '50%',
                     transform: 'translateY(-50%)',
                     zIndex: 10,
-                    backgroundColor: 'rgba(93, 14, 11, 0.8)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(5px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
                     color: 'white',
-                    border: 'none',
                     borderRadius: '50%',
-                    width: '50px',
-                    height: '50px',
-                    fontSize: '24px',
+                    width: '60px',
+                    height: '60px',
+                    fontSize: '28px',
                     cursor: isTransitioning ? 'not-allowed' : 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -364,12 +321,16 @@ const HeaderCarousel: React.FC = () => {
                 }}
                 onMouseEnter={(e) => {
                     if (!isTransitioning) {
-                        e.currentTarget.style.backgroundColor = 'rgba(128, 0, 32, 0.9)';
+                        e.currentTarget.style.backgroundColor = '#f7941d';
+                        e.currentTarget.style.color = '#120101';
+                        e.currentTarget.style.borderColor = '#f7941d';
                         e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
                     }
                 }}
                 onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(93, 14, 11, 0.8)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                     e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
                 }}
             >
@@ -380,7 +341,7 @@ const HeaderCarousel: React.FC = () => {
             <Box
                 style={{
                     position: 'absolute',
-                    bottom: '20px',
+                    bottom: '30px',
                     left: '50%',
                     transform: 'translateX(-50%)',
                     zIndex: 10,
@@ -394,26 +355,15 @@ const HeaderCarousel: React.FC = () => {
                         onClick={() => goToSlide(index)}
                         disabled={isTransitioning}
                         style={{
-                            width: index === currentIndex ? '40px' : '12px',
-                            height: '12px',
-                            borderRadius: '6px',
+                            width: index === currentIndex ? '50px' : '14px',
+                            height: '8px',
+                            borderRadius: '4px',
                             border: 'none',
                             backgroundColor: index === currentIndex
-                                ? '#800020'
-                                : 'rgba(255, 255, 255, 0.6)',
+                                ? '#f7941d'
+                                : 'rgba(255, 255, 255, 0.4)',
                             cursor: isTransitioning ? 'not-allowed' : 'pointer',
                             transition: 'all 0.3s ease',
-                            opacity: isTransitioning ? 0.5 : 1,
-                        }}
-                        onMouseEnter={(e) => {
-                            if (index !== currentIndex && !isTransitioning) {
-                                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-                            }
-                        }}
-                        onMouseLeave={(e) => {
-                            if (index !== currentIndex) {
-                                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
-                            }
                         }}
                     />
                 ))}
