@@ -132,7 +132,7 @@ const SocialIcon: React.FC<{ href: string; children: React.ReactNode }> = ({ hre
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    c="#800020"
+    c="white"
     style={{
       transition: 'all 0.3s ease',
       display: 'flex',
@@ -158,31 +158,32 @@ const Footer: React.FC = () => {
                 style={{
                   fontSize: '1.8rem',
                   letterSpacing: '-0.5px',
+                  color: 'white'
                 }}
               >
-                Amirtha <span style={{ color: '#800020' }}>Super Store</span>
+                Amirtha <span style={{ color: '#f7941d' }}>Super Store</span>
               </Text>
 
-              <Text size="sm" opacity={0.85} lh={1.6}>
+              <Text size="sm" opacity={0.8} lh={1.7}>
                 Your trusted destination in Kumbakonam for authentic Bronze Statues, Puja Items, Furniture,
                 Electronics, and traditional essentials. Quality meets tradition.
               </Text>
 
-              <Group gap="lg" mt="sm">
-                <SocialIcon href="#">
-                  <svg width={24} height={24} fill="currentColor" viewBox="0 0 24 24">
+              <Group gap="md" mt="sm">
+                {/* <SocialIcon href="#">
+                  <svg width={20} height={20} fill="currentColor" viewBox="0 0 24 24">
                     <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.323-1.325z" />
                   </svg>
-                </SocialIcon>
+                </SocialIcon> */}
 
-                <SocialIcon href="#">
-                  <svg width={24} height={24} fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069z" />
+                <SocialIcon href="https://www.instagram.com/amirthasuperstore.official?igsh=MW80ZmI4dmVuaXJ4bg%3D%3D&utm_source=qr">
+                  <svg width={20} height={20} fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/>
                   </svg>
                 </SocialIcon>
 
-                <SocialIcon href="https://wa.me/911234567890">
-                  <svg width={24} height={24} fill="currentColor" viewBox="0 0 24 24">
+                <SocialIcon href="https://wa.me/918610349949">
+                  <svg width={20} height={20} fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.16 14.2c-.28-.14-1.64-.81-1.9-.9s-.45-.14-.64.14c-.19.27-.72.9-.88 1.08-.16.19-.32.21-.6.07-.27-.14-1.14-.42-2.17-1.34-.81-.71-1.36-1.59-1.52-1.86s-.02-.42.12-.56c.13-.13.28-.34.42-.5.14-.17.19-.28.28-.47.1-.19.05-.36-.02-.5s-.64-1.54-.88-2.1c-.24-.56-.49-.48-.64-.49-.16 0-.36-.01-.54-.01s-.46.07-.69.36c-.23.29-.92 1.02-.92 2.49s.94 2.9 1.07 3.1c.13.2 1.86 2.96 4.54 4.03.65.26 1.23.42 1.66.53.71.19 1.36.16 1.86-.09.57-.29 1.64-1.05 1.88-1.42.24-.37.24-.69.17-.83-.07-.13-.26-.22-.54-.36z" />
                   </svg>
                 </SocialIcon>
@@ -193,10 +194,10 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <Grid.Col span={{ base: 6, sm: 3, lg: 2 }}>
             <Stack gap="md">
-              <Text size="lg" fw={600} c="white">
+              <Text size="lg" fw={700} c="white" style={{ letterSpacing: '0.3px' }}>
                 Quick Links
               </Text>
-              <Stack gap="xs">
+              <Stack gap="sm">
                 {['About Us', 'Contact Us', 'FAQ', 'Privacy Policy'].map((item) => (
                   <Link
                     key={item}
@@ -208,10 +209,10 @@ const Footer: React.FC = () => {
                       '/'
                     }
                     style={{
-                      color: 'rgba(255,255,255,0.85)',
+                      color: 'rgba(255,255,255,0.75)',
                       textDecoration: 'none',
-                      fontSize: '0.95rem',
-                      transition: 'color 0.2s ease',
+                      fontSize: '0.9rem',
+                      transition: 'all 0.2s ease',
                     }}
                     className="footer-link"
                   >
@@ -225,19 +226,19 @@ const Footer: React.FC = () => {
           {/* Shop Categories */}
           <Grid.Col span={{ base: 6, sm: 3, lg: 3 }}>
             <Stack gap="md">
-              <Text size="lg" fw={600} c="white">
+              <Text size="lg" fw={700} c="white" style={{ letterSpacing: '0.3px' }}>
                 Shop
               </Text>
-              <Stack gap="xs">
+              <Stack gap="sm">
                 {['Bronze Statues', 'Furniture', 'Puja Items'].map((cat) => (
                   <Link
                     key={cat}
                     to={`/products?category=${encodeURIComponent(cat)}`}
                     style={{
-                      color: 'rgba(255,255,255,0.85)',
+                      color: 'rgba(255,255,255,0.75)',
                       textDecoration: 'none',
-                      fontSize: '0.95rem',
-                      transition: 'color 0.2s ease',
+                      fontSize: '0.9rem',
+                      transition: 'all 0.2s ease',
                     }}
                     className="footer-link"
                   >
@@ -251,27 +252,26 @@ const Footer: React.FC = () => {
           {/* Contact Info */}
           <Grid.Col span={{ base: 12, lg: 3 }}>
             <Stack gap="md">
-              <Text size="lg" fw={600} c="white">
+              <Text size="lg" fw={700} c="white" style={{ letterSpacing: '0.3px' }}>
                 Contact Us
               </Text>
               <Stack gap="sm" component="address" style={{ fontStyle: 'normal' }}>
-                <Text size="sm" lh={1.6} opacity={0.9}>
-                  No. 6/135, Opposite to City Union Bank,<br />
-                  North Street, Natchar Koil,<br />
-                  Kumbakonam - 612602, Tamil Nadu
+                <Text size="sm" lh={1.6} opacity={0.8}>
+                  6/135, North Street,<br />
+                  Nachiyarkovil - 612 602.
                 </Text>
 
-                <Group gap="xs" align="flex-start">
-                  <Text size="sm" fw={500}>Email:</Text>
-                  <Anchor href="mailto:info@amirthasuperstore.com" c="#800020" size="sm">
+                <Group gap="xs" align="center" style={{ marginTop: '4px' }}>
+                  <Text size="sm" fw={600} c="#f7941d">Email:</Text>
+                  <Anchor href="mailto:info@amirthasuperstore.com" c="white" size="sm" className="footer-contact-link">
                     info@amirthasuperstore.com
                   </Anchor>
                 </Group>
 
-                <Group gap="xs" align="flex-start">
-                  <Text size="sm" fw={500}>Phone:</Text>
-                  <Anchor href="tel:+911234567890" c="#800020" size="sm">
-                    +91 123 456 7890
+                <Group gap="xs" align="center">
+                  <Text size="sm" fw={600} c="#f7941d">Phone:</Text>
+                  <Anchor href="tel:+918610349949" c="white" size="sm" className="footer-contact-link">
+                    +91 86103 49949
                   </Anchor>
                 </Group>
               </Stack>
@@ -279,21 +279,36 @@ const Footer: React.FC = () => {
           </Grid.Col>
         </Grid>
 
-        <Divider my="xl" color="rgba(255,255,255,0.12)" />
+        <Divider my="xl" color="rgba(255,255,255,0.08)" />
 
-        <Text ta="center" size="sm" c="rgba(255,255,255,0.6)">
+        <Text ta="center" size="xs" c="rgba(255,255,255,0.5)">
           © {new Date().getFullYear()} Amirtha Super Store. All Rights Reserved.
         </Text>
       </Container>
 
-      {/* Optional subtle top border glow */}
       <style>{`
+        .footer-link {
+          position: relative;
+          display: inline-block;
+          transition: all 0.2s ease;
+        }
         .footer-link:hover {
-          color: #800020 !important;
+          color: #f7941d !important;
+          transform: translateX(4px);
+        }
+        .footer-contact-link {
+          transition: color 0.2s ease;
+          text-decoration: none;
+        }
+        .footer-contact-link:hover {
+          color: #f7941d !important;
+          text-decoration: underline;
         }
         .social-icon:hover {
-          transform: translateY(-2px);
-          color: white !important;
+          transform: translateY(-4px);
+          background-color: #f7941d !important;
+          border-color: #f7941d !important;
+          color: #120101 !important;
         }
       `}</style>
     </Box>

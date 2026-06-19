@@ -79,7 +79,7 @@ const ContactPage: React.FC = () => {
               </Title>
               <div>
                 <Text fw={600} c="#000000ff">Address:</Text>
-                <Text>No6/135, Opposite to City Union Bank, North Street, Natchar Koil, Kumbakonam-612602, Tamil Nadu</Text>
+                <Text>6/135, North Street, Nachiyarkovil - 612 602.</Text>
               </div>
               <div>
                 <Text fw={600} c="#000000ff">Email:</Text>
@@ -89,9 +89,17 @@ const ContactPage: React.FC = () => {
               </div>
               <div>
                 <Text fw={600} c="#000000ff">Phone:</Text>
-                <Anchor href="tel:+911234567890" c="#6a1b1a">
-                  +91-1234567890
-                </Anchor>
+                <Stack gap="xs" mt="xs">
+                  <Anchor href="tel:+918610349949" c="#6a1b1a" style={{ display: 'block' }}>
+                    +91 86103 49949
+                  </Anchor>
+                  <Anchor href="tel:+919443937236" c="#6a1b1a" style={{ display: 'block' }}>
+                    +91 94439 37236
+                  </Anchor>
+                  <Anchor href="tel:+917603910145" c="#6a1b1a" style={{ display: 'block' }}>
+                    +91 76039 10145
+                  </Anchor>
+                </Stack>
               </div>
               <div>
                 <Text fw={600} c="#000000ff">Business Hours:</Text>
