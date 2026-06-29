@@ -1376,17 +1376,17 @@ export const Gallery: GALLERY[] = [
 
 export const silverIdolsCategory: Category = {
   id: 1,
-  name: "Bronze Idols",
-  imageUrl: "/assets/bronces/Scanned_20260615-1149_page-0003.jpg",
-  description: "Divine silver idols handcrafted with devotion",
+  name: "Silver Pooja Lamps",
+  imageUrl: "/assets/home/1.png",
+  description: "Divine silver idols and multi-tiered lamps handcrafted with devotion",
   productCount: 120,
 };
 
 export const floralBloomCategory: Category = {
   id: 2,
-  name: "Pooja Items",
-  imageUrl: "/assets/puja/Scanned_20260615-1149_page-0031.jpg",
-  description: "Delicate floral designs inspired by nature",
+  name: "Brass Pooja Lamps",
+  imageUrl: "/assets/home/2.png",
+  description: "Exquisite traditional brass peacock vilakkus and oil lamps",
   productCount: 85,
 };
 

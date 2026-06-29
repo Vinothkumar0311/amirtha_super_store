@@ -230,7 +230,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({
               pos="absolute"
               bottom={20}
               left={24}
-              zIndex={2}
+              style={{ zIndex: 2 }}
             >
               <Title
                 order={3}

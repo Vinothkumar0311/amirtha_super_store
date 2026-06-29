@@ -21,12 +21,12 @@ const CAROUSEL_IMAGES: CarouselImage[] = [
         buttonLabel: 'Explore Collection'
     },
     { 
-        src: '/assets/categories/furniture/furniture_hero.png', 
-        alt: 'Teak Furniture',
-        title: 'Teak & Rosewood Furniture',
-        subtitle: 'Premium traditional furniture pieces crafted with heritage, time-honored techniques, and luxury teak.',
-        link: '/products?category=Furniture',
-        buttonLabel: 'View Masterpieces'
+        src: '/assets/home/1.png', 
+        alt: 'Silver Pooja Lamps',
+        title: 'Traditional Silver Lamps',
+        subtitle: 'Illuminate your home with our beautifully handcrafted silver lamps and sacred pooja essentials.',
+        link: '/products?category=Puja Items',
+        buttonLabel: 'Explore Lamps'
     },
     { 
         src: '/assets/home/pooja.png', 
@@ -35,6 +35,14 @@ const CAROUSEL_IMAGES: CarouselImage[] = [
         subtitle: 'Traditional puja items, bells, and brass lamps that bring divine grace to your sacred home space.',
         link: '/products?category=Puja Items',
         buttonLabel: 'Discover Sacred Items'
+    },
+    { 
+        src: '/assets/home/2.png', 
+        alt: 'Brass Pooja Lamps',
+        title: 'Divine Brass Lamps',
+        subtitle: 'Bring warmth and divine aura to your home with exquisite brass peacock vilakkus.',
+        link: '/products?category=Puja Items',
+        buttonLabel: 'Explore Brass'
     },
 ];
 
@@ -107,17 +115,26 @@ const HeaderCarousel: React.FC = () => {
         const transitionDuration = '0.8s';
         const easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
 
+        if (!isTransitioning) {
+            return {
+                ...baseStyle,
+                transform: 'translateX(0)',
+                opacity: index === currentIndex ? 1 : 0,
+                zIndex: index === currentIndex ? 2 : 1,
+                transition: 'opacity 0.4s ease',
+            };
+        }
+
         return {
             ...baseStyle,
-            transform: !isTransitioning
-                ? 'translateX(0)'
-                : isCurrent
-                    ? 'translateX(-100%)'
-                    : isNext
-                        ? 'translateX(0)'
-                        : 'translateX(100%)',
-            transition: `transform ${transitionDuration} ${easing}`,
-            zIndex: isNext ? 2 : 1,
+            transform: isCurrent
+                ? 'translateX(-100%)'
+                : isNext
+                    ? 'translateX(0)'
+                    : 'translateX(100%)',
+            opacity: isCurrent || isNext ? 1 : 0,
+            transition: `transform ${transitionDuration} ${easing}, opacity ${transitionDuration} ${easing}`,
+            zIndex: isNext ? 2 : (isCurrent ? 1 : 0),
         };
     };
 
