@@ -315,7 +315,7 @@ const ProductDetailPage: React.FC = () => {
               </Box>
 
               {/* Request via Email */}
-              <Button
+              {/* <Button
                 variant="outline"
                 size="md"
                 radius="xl"
@@ -336,7 +336,7 @@ const ProductDetailPage: React.FC = () => {
                 }}
               >
                 Request Price via Email
-              </Button>
+              </Button> */}
 
               {/* Description */}
               <Box
