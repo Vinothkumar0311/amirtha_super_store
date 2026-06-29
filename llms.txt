@@ -1,0 +1,25 @@
+# Amirtha Super Store
+
+Amirtha Super Store is a premium online catalog of traditional South Indian handcrafted products. It features high-quality bronze statues, home decor artifacts, puja items, and fine wooden furniture.
+
+## Base URL
+- Custom Domain: https://amirthasuperstore.com
+- GitHub Pages Path: https://vinothkumar0311.github.io/amirtha_super_store/
+
+## Main Navigation Pages
+- Home: https://amirthasuperstore.com/#/
+- All Products: https://amirthasuperstore.com/#/products
+- About Us: https://amirthasuperstore.com/#/about
+- Contact: https://amirthasuperstore.com/#/contact
+- FAQ: https://amirthasuperstore.com/#/faq
+- Privacy Policy: https://amirthasuperstore.com/#/privacy
+
+## Product Categories
+- Bronze Statues: https://amirthasuperstore.com/#/products?category=Bronze%20Statues
+- Home Decor Bronze: https://amirthasuperstore.com/#/products?category=Home%20decor%20bronze
+- Puja Items: https://amirthasuperstore.com/#/products?category=Puja%20Items
+- Furniture: https://amirthasuperstore.com/#/products?category=Furniture
+
+## Product Details Page Format
+- Format: https://amirthasuperstore.com/#/products/{id}
+- Total available products: 174 items.
